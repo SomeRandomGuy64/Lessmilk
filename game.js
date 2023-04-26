@@ -6,7 +6,7 @@ class mainScene {
 
   create() {
     this.player = this.physics.add.sprite(100, 100, "player");
-    this.con = this.physics.add.sprite(300, 300, "coin");
+    this.coin = this.physics.add.sprite(300, 300, "coin");
 
     this.score = 0;
     let style = {
@@ -38,6 +38,7 @@ class mainScene {
   }
 
   hit() {
+    console.log('hit');
     this.coin.x = Phaser.Math.Between(100, 600);
     this.coin.y = Phaser.Math.Between(100, 300);
 
@@ -45,7 +46,7 @@ class mainScene {
 
     this.scoreText.setText("score: " + this.score);
 
-    this.tween.add({
+    this.tweens.add({
       targets: this.player,
       duration: 200,
       scaleX: 1.2,
